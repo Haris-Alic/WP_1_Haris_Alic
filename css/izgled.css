@@ -1,0 +1,272 @@
+html {
+    background: linear-gradient(120deg, #f7f0f0 0%, #d60000 100%);
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 17px;
+    font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
+    color: #1b1b1b;
+    margin: 0;
+    line-height: 1.8;
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Veći logo */
+header img {
+    display: block;
+    margin: 0 auto 25px auto;
+    max-width: 360px;      /* povećan logo */
+    width: 60vw;
+    border-radius: 30px;
+    box-shadow: 0 6px 20px rgba(214, 17, 17, 0.3);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+header img:hover {
+    transform: rotate(2deg) scale(1.05);
+    box-shadow: 0 20px 35px rgba(214, 17, 17, 0.4);
+}
+
+/* Header bez sticky efekta (meni NE prati skrol) */
+header {
+    width: 100%;
+    background-color: #fff;
+    padding: 30px 0 15px 0;
+    box-shadow: 0 6px 20px rgba(214, 17, 17, 0.25);
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+    position: static;    /* nema sticky */
+    top: auto;
+    z-index: auto;
+}
+
+/* Tamniji crveni meni sa jačim gradijentom */
+nav {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(90deg, #b30000 0%, #7f0000 100%);
+    border-radius: 0 0 28px 28px;
+    box-shadow: 0 4px 16px rgba(179, 0, 0, 0.6);
+    margin-bottom: 40px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li + li {
+    margin-left: 35px;
+}
+
+nav a, nav a:visited, nav a:active {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.15rem;
+    letter-spacing: 1.4px;
+    padding: 16px 34px;
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    background: transparent;
+}
+
+nav a:hover {
+    background-color: #fff7f3;
+    color: #b30000;
+    box-shadow: 0 0 16px #b3000055;
+    transform: scale(1.05);
+}
+
+/* Naslovi */
+h2,h3 {
+    color: #b30000;
+    margin-top: 25px;
+    margin-bottom: 18px;
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    letter-spacing: 1.3px;
+    font-weight: 800;
+}
+
+/* Linkovi u sadržaju */
+a, a:visited, a:active {
+    color: #a00000;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #b30000;
+    text-decoration: underline wavy 2.5px #ffd6d6;
+}
+
+/* Glavni sadržaj */
+article {
+    width: 95%;
+    max-width: 960px;
+    margin: 50px auto 45px auto;
+    background: #fff;
+    padding: 55px 60px 58px 60px;
+    border-radius: 26px;
+    box-shadow:
+        0 20px 55px rgba(179, 0, 0, 0.12),
+        0 5px 20px rgba(86, 24, 48, 0.06);
+    border-bottom: 9px solid #9c0000;
+    min-height: 700px;
+    overflow-wrap: break-word;
+    transition: box-shadow 0.3s ease;
+}
+
+article:hover {
+    box-shadow:
+        0 26px 72px rgba(179, 0, 0, 0.22),
+        0 8px 26px rgba(86, 24, 48, 0.10);
+}
+
+/* Slike u članku */
+article img {
+    float: right;
+    margin: 20px 0 25px 40px;
+    border-radius: 18px;
+    box-shadow: 0 6px 25px #ca2f2f88;
+    max-width: 460px;
+    transition: box-shadow 0.3s ease;
+}
+
+article img:hover {
+    box-shadow: 0 12px 45px #af2323cc;
+}
+
+/* Footer */
+footer {
+    width: 100vw;              /* cijeli viewport horizontalno */
+    box-sizing: border-box;    /* da padding/margine ne prelaze širinu */
+    background: linear-gradient(90deg, #b30000 0%, #7f0000 100%);
+    color: #fff !important;   /* obavezno bijela boja */
+    text-align: center;
+    padding: 24px 0 10px 0;
+    letter-spacing: 1.9px;
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    font-size: 17.2px;
+    border-top-left-radius: 26px;
+    border-top-right-radius: 26px;
+    box-shadow: 0 -4px 16px #9b000033;
+    margin: 40px 0 0 0;       /* razmak iznad footer-a */
+    position: relative;       /* mjestom u toku no ne fiksirani footer */
+    z-index: 10;
+}
+
+/* Dugmad */
+button {
+    background: linear-gradient(90deg, #b30000 0%, #7f0000 100%);
+    color: #fff;
+    font-weight: 800;
+    border: none;
+    padding: 16px 42px;
+    border-radius: 36px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    letter-spacing: 0.8px;
+    box-shadow: 0 8px 24px #b7444444;
+    transition: all 0.35s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+button:hover {
+    background: #fff7f5;
+    color: #b30000;
+    box-shadow: 0 8px 30px #b3000055;
+    font-weight: 900;
+}
+
+/* Tabele */
+th {
+    color: #fff;
+    background: #b30000;
+    height: 38px;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+}
+
+td, th {
+    border: 1.5px solid #7f0000;
+    padding: 10px 15px;
+}
+
+tr:nth-child(odd) {
+    background-color: #f7c4c4;
+}
+
+/* Polja forme */
+fieldset {
+    margin-bottom: 25px;
+    background-color: #f2dcdc;
+    border: 3px solid #b3000070;
+    border-radius: 20px;
+    padding: 18px 24px;
+    box-shadow: inset 0 0 14px #d85a5ab3;
+}
+
+legend {
+    color: #b30000;
+    font-family: 'Poppins', 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+label {
+    font-weight: 700;
+    color: #4a4a4a;
+    cursor: default;
+}
+
+input, select, textarea {
+    border-radius: 14px;
+    border: 2px solid #ffbfbf;
+    font-family: inherit;
+    font-size: 1.2rem;
+    padding: 10px 18px;
+    outline: none;
+    transition: border 0.35s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border: 2.5px solid #b30000;
+    box-shadow: 0 0 12px #bb1212cc;
+}
+
+
+table {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 38px #d56767b3;
+    margin-bottom: 48px;
+}
+
+@media (max-width: 900px) {
+    article {
+        padding: 32px 20px 38px 20px;
+        width: 98%;
+    }
+    header, nav {
+        border-radius: 0;
+    }
+    nav ul li + li {
+        margin-left: 18px;
+    }
+    article img {
+        max-width: 100%;
+        float: none;
+        display: block;
+        margin: 30px auto 30px auto;
+        border-radius: 20px;
+        box-shadow: 0 10px 36px #ca7b7b99;
+    }
+}

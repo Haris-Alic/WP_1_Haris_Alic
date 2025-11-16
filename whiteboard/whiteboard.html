@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktivni Whiteboard</title>
+    <link rel="stylesheet" href="whiteboard.css" type="text/css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+    <h1>Interaktivni Whiteboard</h1>
+    
+    <div class="toolbar">
+        <label for="colorPicker">Boja:</label>
+        <input type="color" id="colorPicker" value="#000000">
+        
+        <label for="brushSize">Veličina:</label>
+        <input type="range" id="brushSize" min="1" max="20" value="3">
+        <span id="sizeValue">3</span>
+        
+        <button id="drawBtn">Crtaj</button>
+        <button id="eraseBtn">Briši</button>
+        <button id="clearBtn">Očisti sve</button>
+        <button id="saveBtn">Snimi kao PNG</button>
+        <button id="savePdfBtn">Snimi kao PDF</button>
+    </div>
+    
+    <canvas id="whiteboard" width="1000" height="600"></canvas>
+    
+    <footer>
+        <p>&copy; 2025 Interaktivni Whiteboard</p>
+    </footer>
+
+    <script src="whiteboard.js"></script>
+</body>
+</html>
