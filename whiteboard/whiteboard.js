@@ -8,6 +8,11 @@ const eraseBtn = document.getElementById('eraseBtn');
 const clearBtn = document.getElementById('clearBtn');
 const saveBtn = document.getElementById('saveBtn');
 const savePdfBtn = document.getElementById('savePdfBtn');
+const emailBtn = document.getElementById('emailBtn');
+const emailModal = document.getElementById('emailModal');
+const emailInput = document.getElementById('emailInput');
+const sendEmailBtn = document.getElementById('sendEmailBtn');
+const cancelEmailBtn = document.getElementById('cancelEmailBtn');
 
 let isDrawing = false;
 let lastX = 0;
@@ -130,4 +135,47 @@ function handleTouchMove(e) {
     
     lastX = currentX;
     lastY = currentY;
+}
+
+emailBtn.addEventListener('click', () => {
+  emailModal.style.display = 'flex';  // ili 'block' ako nema flex stilove
+  emailInput.value = '';
+  emailInput.focus();
+});
+
+// Poništi i zatvori modal
+cancelEmailBtn.addEventListener('click', () => {
+  emailModal.style.display = 'none';
+});
+
+// Klik van modala sakriva modal
+window.addEventListener('click', (e) => {
+  if (e.target === emailModal) {
+    emailModal.style.display = 'none';
+  }
+});
+
+sendEmailBtn.addEventListener('click', () => {
+  const email = emailInput.value.trim();
+  if (!validateEmail(email)) {
+    alert('Unesite validnu email adresu!');
+    return;
+  }
+
+  const imageData = canvas.toDataURL('image/png');
+  const subject = encodeURIComponent('Whiteboard crtež');
+  const body = encodeURIComponent(
+    'Poštovani,\n\nPrilažem Whiteboard crtež kao sliku.\n\n' +
+    'Napomena: zbog ograničenja mailto metode, molim vas da slikovno prilog preuzmete sa stranice.\n\n'
+  );
+
+  const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+  window.open(mailtoLink, '_blank');
+
+  emailModal.style.display = 'none';
+});
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
 }

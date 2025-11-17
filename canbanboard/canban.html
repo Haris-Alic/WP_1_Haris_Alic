@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kanban ploča</title>
     <link rel="stylesheet" href="canban.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
     <h1>Kanban ploča</h1>
@@ -13,6 +15,8 @@
         <button id="addTaskBtn">Dodaj zadatak</button>
         <button id="saveBoardBtn">Snimi</button>
         <button id="clearBoardBtn">Očisti ploču</button>
+        <button id="savePdfBtn">Snimi kao PDF</button>
+        <button id="emailBtn">Pošalji mailom</button>
     </div>
 
     <div id="taskModal" class="modal">
@@ -53,6 +57,18 @@
             <div class="taskList"></div>
         </div>
     </div>
+
+    <div id="emailModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h3>Pošalji mailom</h3>
+            <input type="email" id="emailInput" placeholder="Unesite email adresu..." />
+            <div class="modal-buttons">
+                <button id="sendEmailBtn">Pošalji</button>
+                <button id="cancelEmailBtn">Poništi</button>
+            </div>
+        </div>
+    </div>
+
 
     <footer>
         <p>Web programiranje 2025 &copy; Internacionalna poslovno-informaciona akademija Tuzla</p>

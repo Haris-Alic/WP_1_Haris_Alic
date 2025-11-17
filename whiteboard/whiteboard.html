@@ -25,10 +25,23 @@
         <button id="clearBtn">Očisti sve</button>
         <button id="saveBtn">Snimi kao PNG</button>
         <button id="savePdfBtn">Snimi kao PDF</button>
+        <button id="emailBtn">Pošalji mailom</button>
     </div>
     
     <canvas id="whiteboard" width="1000" height="600"></canvas>
-    
+
+    <div id="emailModal" class="modal" style="display:none;">
+        <div class="modal-content">
+                <h3>Pošalji mailom</h3>
+                <input type="email" id="emailInput" placeholder="Unesite email adresu..." />
+            <div class="modal-buttons">
+                <button id="sendEmailBtn">Pošalji</button>
+                <button id="cancelEmailBtn">Poništi</button>
+            </div>
+        </div>
+    </div>
+
+
     <footer>
         <p>&copy; 2025 Interaktivni Whiteboard</p>
     </footer>

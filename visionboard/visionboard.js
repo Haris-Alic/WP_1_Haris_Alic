@@ -5,6 +5,12 @@ const addQuoteBtn = document.getElementById("add-quote");
 const saveBtn = document.getElementById("save-board");
 const loadBtn = document.getElementById("load-board");
 const clearBtn = document.getElementById("clear-board");
+const savePdfBtn = document.getElementById('savePdfBtn');
+const emailBtn = document.getElementById('emailBtn');
+const emailModal = document.getElementById('emailModal');
+const emailInput = document.getElementById('emailInput');
+const sendEmailBtn = document.getElementById('sendEmailBtn');
+const cancelEmailBtn = document.getElementById('cancelEmailBtn')
 
 const colors = ["color1", "color2", "color3", "color4", "color5", "color6"];
 
@@ -145,3 +151,51 @@ clearBtn.addEventListener("click", () => {
     localStorage.removeItem("visionBoardItems");
   }
 }); 
+
+savePdfBtn.addEventListener('click', () => {
+  html2canvas(document.getElementById('board')).then((canvas) => {
+    const { jsPDF } = window.jspdf;
+    const imgData = canvas.toDataURL('image/png');
+    const pdfWidth = canvas.width;
+    const pdfHeight = canvas.height;
+    const pdf = new jsPDF('l', 'px', [pdfWidth, pdfHeight]);
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save('visionboard.pdf');
+  });
+});
+
+
+emailBtn.addEventListener('click', () => {
+  emailModal.style.display = 'flex';  
+  emailInput.value = '';
+  emailInput.focus();
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === emailModal) {
+    emailModal.style.display = 'none';
+  }
+});
+
+
+sendEmailBtn.addEventListener('click', () => {
+  const email = emailInput.value.trim();
+  if (!validateEmail(email)) {
+    alert('Unesite validnu email adresu!');
+    return;
+  }
+  const subject = encodeURIComponent('Vision Board crtež');
+  const body = encodeURIComponent('Pošalji whiteboard kao sliku (ručno priloži preuzetu PNG sliku)');
+  const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+  window.open(mailtoLink, '_blank');
+  emailModal.style.display = 'none';
+});
+
+cancelEmailBtn.addEventListener('click', () => {
+  emailModal.style.display = 'none';
+});
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}

@@ -1,6 +1,12 @@
 // Dodaj zadatak
 const modal = document.getElementById("taskModal");
 const taskInput = document.getElementById("taskInput");
+const savePdfBtn = document.getElementById('savePdfBtn');
+const emailBtn = document.getElementById('emailBtn');
+const emailModal = document.getElementById('emailModal');
+const emailInput = document.getElementById('emailInput');
+const sendEmailBtn = document.getElementById('sendEmailBtn');
+const cancelEmailBtn = document.getElementById('cancelEmailBtn');
 
 document.getElementById("addTaskBtn").addEventListener("click", () => {
     modal.style.display = "block";
@@ -96,3 +102,50 @@ window.addEventListener("click", e => {
         modal.style.display = "none";
     }
 });
+
+
+savePdfBtn.addEventListener('click', () => {
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF('portrait', 'pt', 'a4');
+  html2canvas(document.querySelector('.board')).then((canvas) => {
+    const imgData = canvas.toDataURL('image/png');
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+    pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+    pdf.save('kanban_board.pdf');
+  });
+});
+
+emailBtn.addEventListener('click', () => {
+  emailModal.style.display = 'block';
+  emailInput.value = '';
+  emailInput.focus();
+});
+
+sendEmailBtn.addEventListener('click', () => {
+  const email = emailInput.value.trim();
+  if (!validateEmail(email)) {
+    alert('Molimo unesite validnu email adresu!');
+    return;
+  }
+
+  const mailtoLink = `mailto:${email}?subject=Kanban ploča&body=Molimo priložite vaš skinuti Kanban PDF kao privitak.`;
+  window.open(mailtoLink, '_blank');
+
+  emailModal.style.display = 'none';
+});
+
+cancelEmailBtn.addEventListener('click', () => {
+  emailModal.style.display = 'none';
+});
+
+window.addEventListener('click', e => {
+  if (e.target === emailModal) {
+    emailModal.style.display = 'none';
+  }
+});
+
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
