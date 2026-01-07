@@ -1,37 +1,33 @@
+
 Opis funkcionalnosti
 
 Glavne stranice:
 
 1. Početna stranica (index.html)
-
 - Pregled informacija o IPI Akademiji
 - Navigacijski meni
 - Footer sa copyright informacijama
 
 2. Popis kurseva (popis.html)
-
 - Detaljan pregled dostupnih kurseva
 - Opisi i sadržaji kurseva
 
 3. Raspored (raspored.html)
-
 - Pregled rasporeda kurseva
 - Vrijeme održavanja
 
 4. Kontakt (kontakt.html)
-
 - Kontakt forma za upite
 - Podaci za kontakt
 
 5. Student Fun Zone (StudentFunZone.html)
-   Centralna stranica sa iframe integracijom koja učitava:Interaktivni Whiteboard, Vision Board i Kanban Board.
+Centralna stranica sa iframe integracijom koja učitava:Interaktivni Whiteboard, Vision Board i Kanban Board.
 
 Interaktivne komponente - Student Fun Zone
 
 1. Interaktivni Whiteboard
 
 Funkcionalnosti:
-
 - Crtanje mišem na canvas elementu
 - Odabir boje pomoću color picker-a
 - Podešavanje veličine kista (1-20px)
@@ -42,7 +38,6 @@ Funkcionalnosti:
 - Slanje emailom (mailto metoda)
 
 Način korištenja:
-
 1. Odaberite boju pomoću color picker-a
 2. Podesite veličinu kista pomoću slider-a
 3. Kliknite i povucite miš po ploči za crtanje
@@ -53,15 +48,14 @@ Način korištenja:
 8. "Pošalji mailom" - otvara modal za unos email adrese
 
 Tehnologije:
-
 - Canvas API za crtanje
 - jsPDF za PDF export
 - mailto protokol za email
 
+
 2. Vision Board
 
 Funkcionalnosti:
-
 - Dodavanje Post-It bilješki (6 različitih boja)
 - Dodavanje motivacionih citata
 - Dodavanje slika
@@ -73,7 +67,6 @@ Funkcionalnosti:
 - Slanje emailom
 
 Način korištenja:
-
 1. "Post It" - dodaje novu bilješku nasumične boje
 2. "Citat" - dodaje motivacioni citat
 3. "Slika" - dodaje nasumičnu sliku
@@ -86,17 +79,16 @@ Način korištenja:
 10. "Pošalji mailom" - otvara email modal
 
 Tehnologije:
-
 - DOM manipulacija
 - localStorage API
 - Drag & Drop API
 - html2canvas za konverziju u sliku
 - jsPDF za PDF kreiranje
 
+
 3. Kanban Board
 
 Funkcionalnosti:
-
 - Kreiranje task-ova putem modala
 - Tri kolone: To Do, In Progress, Done
 - Drag & Drop pomeranje task-ova između kolona
@@ -107,7 +99,6 @@ Funkcionalnosti:
 - Slanje emailom
 
 Način korištenja:
-
 1. "Dodaj zadatak" - otvara modal za unos task-a
 2. Unesite opis zadatka i kliknite "Dodaj"
 3. Task se pojavljuje u "To Do" koloni
@@ -118,18 +109,17 @@ Način korištenja:
 8. "Pošalji mailom" - omogućava slanje putem email-a
 
 Tehnologije:
-
 - Drag & Drop API
 - Modal dialozi
 - html2canvas za screenshot
 - jsPDF za PDF export
+
 
 Mailto funkcionalnost
 
 Sve tri glavne komponente (Whiteboard, Vision Board, Kanban Board) imaju opciju slanja emailom.
 
 Kako funkcionira:
-
 1. Kliknite dugme "Pošalji mailom"
 2. Pojavljuje se modal prozor
 3. Unesite email adresu primaoca
@@ -138,16 +128,15 @@ Kako funkcionira:
 
 Napomena: Zbog sigurnosnih ograničenja mailto protokola, slike i PDF-ovi se ne mogu direktno priložiti u email. Preporuka je da prvo preuzmete datoteku (PNG/PDF), pa je ručno priložite u email kao attachment.
 
+
 Tehnologije korištene u projektu
 
 Frontend:
-
 - HTML5 - Semantička struktura stranica
 - CSS3 - Stilizacija, flexbox, responzivni dizajn
 - JavaScript (Vanilla) - Interaktivnost bez frameworka
 
 API-ji i biblioteke:
-
 - Canvas API - Za crtanje na Whiteboard-u
 - Drag & Drop API - Za pomeranje elemenata
 - localStorage API - Trajno spremanje podataka u browseru
@@ -156,10 +145,10 @@ API-ji i biblioteke:
 - mailto protokol - Slanje email-a
 
 Alati za razvoj:
-
 - Visual Studio Code
 - Git & GitHub
 - Live Server (VS Code ekstenzija)
+
 
 Dizajn i stilizacija
 
@@ -171,6 +160,7 @@ Dizajn i stilizacija
 - Drop shadows i zaobljeni rubovi (border-radius)
 - Transparentni background efekti
 
+
 Poznati problemi i ograničenja
 
 1. Mailto ograničenja: Mailto protokol ne podržava direktno prilaganje slika i PDF-ova zbog sigurnosnih razloga browsera.
@@ -179,8 +169,9 @@ Poznati problemi i ograničenja
 
 Preporuka: Koristite lokalni web server (Live Server) umjesto direktnog otvaranja HTML fajlova.
 
-Verzija 1.0 (Novembar 2025)
 
+
+Verzija 1.0 (Novembar 2025)
 - Implementirana osnovna struktura web stranice
 - Dodane sve stranice (O kursevima, Popis, Raspored, Kontakt)
 - Implementirana Student Fun Zone sa iframe integracijom
@@ -192,9 +183,11 @@ Verzija 1.0 (Novembar 2025)
 - Responzivan dizajn
 - Dokumentacija u README.md
 
+
 Autor
 
 [Haris Alić]
 Student Web programiranja
 Internacionalna poslovno-informaciona akademija Tuzla
 Godina: 2025
+

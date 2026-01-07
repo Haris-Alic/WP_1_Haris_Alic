@@ -1,0 +1,30 @@
+<div class="profile-container">
+  <div class="profile-card">
+    <div class="profile-header">
+      <div class="avatar">{{ user?.name?.charAt(0) || 'U' }}</div>
+      <h1>{{ user?.name || 'Korisnik' }}</h1>
+      <p class="email">{{ user?.email }}</p>
+    </div>
+
+    <div class="profile-info">
+      <div class="info-row">
+        <span class="label">Email:</span>
+        <span class="value">{{ user?.email }}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Tema:</span>
+        <span class="value theme-badge" [ngClass]="'badge-' + user?.theme">
+          {{ user?.theme }}
+        </span>
+      </div>
+      <div class="info-row">
+        <span class="label">Kreiran:</span>
+        <span class="value">{{ user?.created | date:'dd.MM.yyyy HH:mm' }}</span>
+      </div>
+    </div>
+
+    <div class="profile-actions">
+      <button class="btn-logout" (click)="logout()">Odjavi se</button>
+    </div>
+  </div>
+</div>

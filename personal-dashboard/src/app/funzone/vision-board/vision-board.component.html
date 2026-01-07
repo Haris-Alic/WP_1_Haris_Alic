@@ -1,0 +1,28 @@
+<div class="vision-container">
+  <div class="header">
+    <button class="btn-back" (click)="goBack()">← Nazad</button>
+    <h1>✨ Vision Board</h1>
+  </div>
+
+  <div class="toolbar">
+    <button (click)="addNote()">Post It</button>
+    <button (click)="addQuote()">Citat</button>
+    <button (click)="addImage()">Slika</button>
+    <button (click)="saveBoard()">Snimi</button>
+    <button (click)="clearBoard()">Očisti ploču</button>
+    <button (click)="openEmailModal()">Pošalji mailom</button>
+  </div>
+
+  <div id="board"></div>
+
+  <div class="modal" *ngIf="showEmailModal" (click)="closeEmailModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h3>Pošalji mailom</h3>
+      <input type="email" #emailField placeholder="Unesite email adresu...">
+      <div class="modal-buttons">
+        <button (click)="emailValue = emailField.value; sendEmail()">Pošalji</button>
+        <button (click)="closeEmailModal()">Poništi</button>
+      </div>
+    </div>
+  </div>
+</div>

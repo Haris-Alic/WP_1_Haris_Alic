@@ -1,0 +1,56 @@
+.trackers-container {
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  color: #0000cd;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 18px;
+}
+
+.trackers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.tracker-card {
+  background: linear-gradient(135deg, #b3d9ff, #87ceeb);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tracker-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 32px rgba(0, 0, 205, 0.3);
+  background: linear-gradient(135deg, #87ceeb, #4169E1);
+}
+
+.tracker-icon {
+  font-size: 64px;
+  margin-bottom: 1rem;
+}
+
+.tracker-card h3 {
+  color: #0000cd;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.tracker-card:hover h3 {
+  color: white;
+}

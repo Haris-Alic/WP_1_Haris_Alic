@@ -1,0 +1,15 @@
+<div class="funzone-container">
+  <h1>🎮 Student Fun Zone</h1>
+  <p class="subtitle">Izaberi modul za zabavu i produktivnost!</p>
+
+  <div class="modules-grid">
+    <div 
+      *ngFor="let module of modules" 
+      class="module-card"
+      (click)="openModule(module.route)"
+    >
+      <div class="module-icon">{{ module.icon }}</div>
+      <h3>{{ module.name }}</h3>
+    </div>
+  </div>
+</div>

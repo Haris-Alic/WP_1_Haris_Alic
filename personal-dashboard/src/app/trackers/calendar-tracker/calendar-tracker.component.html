@@ -1,0 +1,49 @@
+<div class="calendar-tracker-container">
+  <div class="header">
+    <button class="btn-back" (click)="goBack()">← Nazad</button>
+    <h1>📅 Calendar Tracker</h1>
+  </div>
+
+  <div class="tracker-content">
+    <div class="calendar-header">
+      <button class="nav-btn" (click)="prevMonth()">◀</button>
+      <div class="month-year">
+        {{ monthNames[calendarData.currentMonth] }} {{ calendarData.currentYear }}
+      </div>
+      <button class="nav-btn" (click)="nextMonth()">▶</button>
+    </div>
+
+    <button class="btn-today" (click)="goToToday()">Danas</button>
+
+    <div class="calendar-grid">
+      <div class="day-header">Ned</div>
+      <div class="day-header">Pon</div>
+      <div class="day-header">Uto</div>
+      <div class="day-header">Sri</div>
+      <div class="day-header">Čet</div>
+      <div class="day-header">Pet</div>
+      <div class="day-header">Sub</div>
+
+      <div 
+        *ngFor="let dayObj of days" 
+        class="calendar-day"
+        [class.empty]="dayObj.empty"
+        [class.has-event]="dayObj.hasEvent"
+        [class.today]="dayObj.isToday"
+        (click)="toggleEvent(dayObj)"
+      >
+        <span class="day-number">{{ dayObj.day }}</span>
+        <span *ngIf="dayObj.hasEvent" class="event-dot">●</span>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item">
+        <span class="legend-dot today-dot"></span> Danas
+      </div>
+      <div class="legend-item">
+        <span class="legend-dot event-dot-legend">●</span> Event
+      </div>
+    </div>
+  </div>
+</div>

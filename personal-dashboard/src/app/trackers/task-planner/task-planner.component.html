@@ -1,0 +1,73 @@
+<div class="task-planner-container">
+  <div class="header">
+    <button class="btn-back" (click)="goBack()">← Nazad</button>
+    <h1>📋 Task/Project Planner</h1>
+  </div>
+
+  <div class="tracker-content">
+    <div class="add-project-section">
+      <button class="btn-add-project" (click)="addProject()">
+        ➕ Dodaj novi projekat
+      </button>
+    </div>
+
+    <div class="projects-container">
+      <div *ngFor="let project of taskData.projects; let i = index" class="project-card">
+        <div class="project-header">
+          <h2>{{ project.name }}</h2>
+          <div class="project-actions">
+            <button class="btn-icon" (click)="addTask(i)" title="Dodaj zadatak">➕</button>
+            <button class="btn-icon delete" (click)="deleteProject(i)" title="Obriši projekat">🗑️</button>
+          </div>
+        </div>
+
+        <div class="project-progress">
+          <div class="progress-text">
+            {{ getCompletedCount(project) }} / {{ getTotalCount(project) }} zadataka
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="getProgressPercentage(project)"></div>
+          </div>
+        </div>
+
+        <div class="tasks-list">
+          <div 
+            *ngFor="let task of project.tasks; let j = index" 
+            class="task-item"
+            [class.completed]="task.completed"
+            [class.priority-high]="task.priority === 'high'"
+            [class.priority-medium]="task.priority === 'medium'"
+            [class.priority-low]="task.priority === 'low'"
+          >
+            <div class="task-check" (click)="toggleTask(i, j)">
+              <span *ngIf="task.completed" class="checkmark">✓</span>
+              <span *ngIf="!task.completed" class="empty-check">○</span>
+            </div>
+            
+            <div class="task-content">
+              <div class="task-title">{{ task.title }}</div>
+              <div class="task-priority">
+                <select [(ngModel)]="task.priority" (change)="saveData()" class="priority-select">
+                  <option value="high">🔴 High</option>
+                  <option value="medium">🟡 Medium</option>
+                  <option value="low">🟢 Low</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="btn-delete-task" (click)="deleteTask(i, j)">🗑️</button>
+          </div>
+
+          <div *ngIf="project.tasks.length === 0" class="empty-state">
+            Nema zadataka. Klikni ➕ da dodaš novi zadatak.
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="taskData.projects.length === 0" class="empty-projects">
+        <div class="empty-icon">📋</div>
+        <p>Nema projekata. Kreiraj svoj prvi projekat!</p>
+      </div>
+    </div>
+  </div>
+</div>

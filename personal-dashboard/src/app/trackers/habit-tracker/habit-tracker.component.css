@@ -1,0 +1,190 @@
+.habit-tracker-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-back {
+  padding: 0.8rem 1.5rem;
+  background: #666;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-back:hover {
+  background: #555;
+}
+
+h1 {
+  color: #0000cd;
+  margin: 0;
+}
+
+.tracker-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.progress-section {
+  margin-bottom: 2rem;
+}
+
+.progress-display {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.progress-icon {
+  font-size: 64px;
+  margin-bottom: 1rem;
+}
+
+.progress-text {
+  font-size: 48px;
+  font-weight: bold;
+  color: #32CD32;
+}
+
+.progress-total {
+  color: #666;
+}
+
+.progress-label {
+  font-size: 18px;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.progress-bar {
+  height: 30px;
+  background: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #32CD32, #90EE90);
+  transition: width 0.5s ease;
+}
+
+.habits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.habit-card {
+  background: #fff;
+  border: 3px solid #e0e0e0;
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.habit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.habit-card.completed {
+  background: linear-gradient(135deg, #90EE90, #32CD32);
+  border-color: #32CD32;
+}
+
+.habit-icon {
+  font-size: 48px;
+  margin-bottom: 0.5rem;
+}
+
+.habit-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.habit-card.completed .habit-name {
+  color: white;
+}
+
+.habit-streak {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.habit-card.completed .habit-streak {
+  color: #FFF;
+  font-weight: bold;
+}
+
+.habit-status {
+  font-size: 32px;
+}
+
+.checkmark {
+  color: white;
+}
+
+.empty-check {
+  color: #ccc;
+}
+
+.controls {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn-reset {
+  padding: 1rem 2rem;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.btn-reset:hover {
+  background: #c82333;
+  transform: translateY(-3px);
+}
+
+.message {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.success-message {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #8B4513;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

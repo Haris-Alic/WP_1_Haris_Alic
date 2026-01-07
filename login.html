@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login/Register - IPI Akademija</title>
+        <link rel="stylesheet" href="css/izgled.css" type="text/css" />
+        <link rel="icon" href="favicon.ico" />
+        <style>
+            .login-container {
+                max-width: 1000px;
+                margin: 50px auto;
+                display: flex;
+                gap: 40px;
+                padding: 20px;
+            }
+            
+            .login-box, .register-box {
+                flex: 1;
+                background: linear-gradient(135deg, #b3d9ff, #87ceeb);
+                padding: 40px;
+                border-radius: 20px;
+                box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            }
+            
+            .login-box h2, .register-box h2 {
+                text-align: center;
+                color: #0000cd;
+                margin-bottom: 30px;
+                font-size: 28px;
+            }
+            
+            .login-box input, .register-box input {
+                width: 100%;
+                padding: 15px;
+                margin: 10px 0;
+                border: 2px solid #0000cd;
+                border-radius: 10px;
+                font-size: 16px;
+                box-sizing: border-box;
+            }
+            
+            .login-box button, .register-box button {
+                width: 100%;
+                padding: 15px;
+                background: #0000cd;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 18px;
+                margin-top: 20px;
+            }
+            
+            .login-box button:hover, .register-box button:hover {
+                background: #0000b3;
+            }
+            
+            .theme-selection {
+                margin: 15px 0;
+            }
+            
+            .theme-selection label {
+                display: block;
+                margin: 8px 0;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            
+            .theme-selection input[type="radio"] {
+                width: auto;
+                margin-right: 10px;
+            }
+            
+            .theme-label {
+                font-weight: bold;
+                color: #0000cd;
+                margin-bottom: 10px;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <a href="index.html">
+                <img src="slike/logo-ipi.png" alt="Kursevi IPI">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">O kursevima</a></li>
+                    <li><a href="popis.html">Popis kurseva</a></li>
+                    <li><a href="raspored.html">Raspored kurseva</a></li>
+                    <li><a href="StudentFunZone.html">Student Fun Zone</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                    <li><a href="login.html">Login/Register</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <article>
+            <h2 style="text-align:center; color:#0000cd;">Dobrodošli u IPI Personal Dashboard</h2>
+            <p style="text-align:center;">Prijavite se ili kreirajte novi račun za pristup vašem ličnom dashboardu</p>
+            
+            <div class="login-container">
+                <div class="login-box">
+                    <h2>LOGIN</h2>
+                    <form id="loginForm">
+                        <input type="email" id="loginEmail" placeholder="Email adresa" required>
+                        <input type="password" id="loginPassword" placeholder="Lozinka" required>
+                        <button type="submit">Prijavi se</button>
+                    </form>
+                </div>
+
+                <div class="register-box">
+                    <h2>REGISTER</h2>
+                    <form id="registerForm">
+                        <input type="text" id="regName" placeholder="Ime i Prezime" required>
+                        <input type="email" id="regEmail" placeholder="Email adresa" required>
+                        <input type="password" id="regPassword" placeholder="Lozinka" required>
+                        
+                        <span class="theme-label">Izaberite temu:</span>
+                        <div class="theme-selection">
+                            <label>
+                                <input type="radio" name="theme" value="zelena" required> 
+                                Zelena
+                            </label>
+                            <label>
+                                <input type="radio" name="theme" value="plava"> 
+                                Plava
+                            </label>
+                            <label>
+                                <input type="radio" name="theme" value="roza"> 
+                                Roza
+                            </label>
+                            <label>
+                                <input type="radio" name="theme" value="narandzasta"> 
+                                Narandžasta
+                            </label>
+                            <label>
+                                <input type="radio" name="theme" value="dark"> 
+                                Tamna/Dark
+                            </label>
+                            <label>
+                                <input type="radio" name="theme" value="cyberpunk"> 
+                                Cyberpunk
+                            </label>
+                        </div>
+                        
+                        <button type="submit">Registruj se</button>
+                    </form>
+                </div>
+            </div>
+        </article>
+        
+        <footer>&copy; Internacionalna poslovno-informaciona akademija Tuzla</footer>
+
+        <script>
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('regName').value;
+    const email = document.getElementById('regEmail').value;
+    const password = document.getElementById('regPassword').value;
+    const theme = document.querySelector('input[name="theme"]:checked').value;
+    
+    const user = {
+        name: name,
+        email: email,
+        password: password,
+        theme: theme,
+        trackers: {},
+        funzone: {},
+        created: new Date().toISOString()
+    };
+    
+    localStorage.setItem('ipiUser_' + email, JSON.stringify(user));
+    localStorage.setItem('ipiCurrentUser', JSON.stringify(user));
+    
+    const angularWindow = window.open('http://localhost:4200', '_blank');
+    
+    setTimeout(() => {
+        angularWindow.postMessage({ type: 'LOGIN', user: user }, 'http://localhost:4200');
+    }, 1000);
+    
+    alert('✅ Registracija uspješna!');
+});
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+    
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+    
+        const savedUser = localStorage.getItem('ipiUser_' + email);
+    
+        if (!savedUser) {
+            alert('❌ Korisnik sa ovim email-om ne postoji!');
+            return;
+        }
+    
+        const user = JSON.parse(savedUser);
+    
+        if (user.password !== password) {
+            alert('❌ Pogrešna lozinka!');
+            return;
+        }
+    
+        localStorage.setItem('ipiCurrentUser', JSON.stringify(user));
+    
+        const angularWindow = window.open('http://localhost:4200', '_blank');
+    
+        setTimeout(() => {
+            angularWindow.postMessage({ type: 'LOGIN', user: user }, 'http://localhost:4200');
+        }, 1000);
+    
+        alert('✅ Login uspješan!');
+    });
+
+
+        function testLogin() {
+            console.log('Svi korisnici u localStorage:');
+                for (let i = 0; i < localStorage.length; i++) {
+                    const key = localStorage.key(i);
+                        if (key.startsWith('ipiUser_')) {
+                            console.log(key, JSON.parse(localStorage.getItem(key)));
+                        }
+                }
+        }
+        </script>
+    </body>
+</html>

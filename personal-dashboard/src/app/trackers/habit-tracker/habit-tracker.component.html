@@ -1,0 +1,58 @@
+<div class="habit-tracker-container">
+  <div class="header">
+    <button class="btn-back" (click)="goBack()">← Nazad</button>
+    <h1>✅ Habit Tracker</h1>
+  </div>
+
+  <div class="tracker-content">
+    <!-- PROGRESS -->
+    <div class="progress-section">
+      <div class="progress-display">
+        <div class="progress-icon">🎯</div>
+        <div class="progress-text">
+          <span class="progress-count">{{ getCompletedCount() }}</span> / 
+          <span class="progress-total">{{ getTotalCount() }}</span>
+        </div>
+        <div class="progress-label">Završene navike danas</div>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="getProgressPercentage()"></div>
+      </div>
+    </div>
+
+    <!-- HABITS GRID -->
+    <div class="habits-grid">
+      <div 
+        *ngFor="let habit of habitData.habits" 
+        class="habit-card"
+        [class.completed]="habit.completed"
+        (click)="toggleHabit(habit)"
+      >
+        <div class="habit-icon">{{ habit.icon }}</div>
+        <div class="habit-name">{{ habit.name }}</div>
+        <div class="habit-streak">
+          🔥 {{ habit.streak }} dana
+        </div>
+        <div class="habit-status">
+          <span *ngIf="habit.completed" class="checkmark">✓</span>
+          <span *ngIf="!habit.completed" class="empty-check">○</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="controls">
+      <button class="btn-reset" (click)="resetAll()">
+        🔄 Reset sve
+      </button>
+    </div>
+
+    <!-- SUCCESS MESSAGE -->
+    <div class="message" *ngIf="getCompletedCount() === getTotalCount()">
+      <div class="success-message">
+        🎉 Perfektno! Završio si sve navike danas! 💪
+      </div>
+    </div>
+  </div>
+</div>

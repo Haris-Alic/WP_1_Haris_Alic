@@ -27,27 +27,24 @@ const sampleQuotes = [
   "Ne osnivate zajednice. Zajednice već postoje. Pitanje koje treba postaviti je kako im možete pomoći da budu bolje. — Mark Zuckerberg"
 ];
 
-// ======= Usluzni program za stvaranje stavki koje se mogu povlaciti i brisati =======
 function makeDraggable(el) {
   let offsetX, offsetY;
 
-  // Kreiranje delete (X) button
   const delBtn = document.createElement("button");
   delBtn.textContent = "X";
   delBtn.className = "delete-btn";
   el.appendChild(delBtn);
 
-  // Brisanje elementa na click
+
   delBtn.addEventListener("click", (e) => {
-    e.stopPropagation(); // prevent starting drag
+    e.stopPropagation(); 
     el.remove();
   });
 
-  // logika povlacenja
   el.addEventListener("mousedown", dragStart);
 
   function dragStart(e) {
-    if (e.target === delBtn) return; // preskoci povlacenja ako se klikne X
+    if (e.target === delBtn) return; 
     offsetX = e.clientX - el.offsetLeft;
     offsetY = e.clientY - el.offsetTop;
     document.addEventListener("mousemove", drag);
@@ -66,7 +63,6 @@ function makeDraggable(el) {
   }
 }
 
-// ======= Dodaj Post It =======
 addNoteBtn.addEventListener("click", () => {
   const note = document.createElement("div");
   note.className = "note " + colors[Math.floor(Math.random() * colors.length)];
@@ -78,7 +74,6 @@ addNoteBtn.addEventListener("click", () => {
   board.appendChild(note);
 });
 
-// ======= Dodatj sliku =======
 addImageBtn.addEventListener("click", () => {
   const div = document.createElement("div");
   div.className = "pinned-img";

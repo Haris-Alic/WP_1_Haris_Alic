@@ -1,0 +1,51 @@
+<div class="pixel-tracker-container">
+  <div class="header">
+    <button class="btn-back" (click)="goBack()">← Nazad</button>
+    <h1>🎨 Pixel Art Tracker</h1>
+  </div>
+
+  <div class="tracker-content">
+    <div class="color-section">
+      <h3>Izaberi boju:</h3>
+      <div class="color-palette">
+        <div 
+          *ngFor="let color of pixelData.colors" 
+          class="color-box"
+          [style.background-color]="color"
+          [class.selected]="pixelData.currentColor === color"
+          (click)="selectColor(color)"
+        ></div>
+      </div>
+      <div class="current-color">
+        <span>Trenutna boja:</span>
+        <div class="color-preview" [style.background-color]="pixelData.currentColor"></div>
+      </div>
+    </div>
+
+    <div class="pixel-grid-container">
+      <div class="pixel-grid">
+        <div *ngFor="let row of pixelData.grid; let i = index" class="pixel-row">
+          <div 
+            *ngFor="let pixel of row; let j = index" 
+            class="pixel"
+            [style.background-color]="pixel"
+            (click)="paintPixel(i, j)"
+          ></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn-fill" (click)="fillAll()">
+        🎨 Fill All
+      </button>
+      <button class="btn-clear" (click)="clearGrid()">
+        🗑️ Clear
+      </button>
+    </div>
+
+    <div class="info">
+      💡 Klikni na pixel da ga ofarbaš trenutnom bojom
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="kanban-container">
+  <div class="header">
+    <button class="btn-back" (click)="goBack()">← Nazad</button>
+    <h1>📋 Kanban ploča</h1>
+  </div>
+
+  <div class="buttons">
+    <button (click)="openTaskModal()">Dodaj zadatak</button>
+    <button (click)="openClearModal()">Očisti ploču</button>
+    <button (click)="openEmailModal()">Pošalji mailom</button>
+  </div>
+
+  <div class="board">
+    <div class="column" (dragover)="onDragOver($event)" (drop)="onDrop('todo')">
+      <h2>To Do</h2>
+      <div class="taskList">
+        <div 
+          *ngFor="let task of todoTasks" 
+          class="task"
+          draggable="true"
+          (dragstart)="onDragStart(task)"
+        >
+          {{ task.text }}
+        </div>
+      </div>
+    </div>
+
+    <div class="column" (dragover)="onDragOver($event)" (drop)="onDrop('progress')">
+      <h2>In Progress</h2>
+      <div class="taskList">
+        <div 
+          *ngFor="let task of progressTasks" 
+          class="task"
+          draggable="true"
+          (dragstart)="onDragStart(task)"
+        >
+          {{ task.text }}
+        </div>
+      </div>
+    </div>
+
+    <div class="column" (dragover)="onDragOver($event)" (drop)="onDrop('done')">
+      <h2>Done</h2>
+      <div class="taskList">
+        <div 
+          *ngFor="let task of doneTasks" 
+          class="task"
+          draggable="true"
+          (dragstart)="onDragStart(task)"
+        >
+          {{ task.text }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" *ngIf="showTaskModal" (click)="closeTaskModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h3>Dodaj zadatak</h3>
+      <input type="text" #taskField placeholder="Vaš zadatak...">
+      <div class="modal-buttons">
+        <button (click)="taskInput = taskField.value; addTask()">Dodaj</button>
+        <button (click)="closeTaskModal()">Poništi</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" *ngIf="showClearModal" (click)="closeClearModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h3>Očisti cijelu ploču?</h3>
+      <p>Ova se radnja ne može promijeniti.</p>
+      <div class="modal-buttons">
+        <button class="btn-danger" (click)="clearBoard()">Očisti</button>
+        <button (click)="closeClearModal()">Poništi</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" *ngIf="showEmailModal" (click)="closeEmailModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h3>Pošalji mailom</h3>
+      <input type="email" #emailField placeholder="Unesite email adresu...">
+      <div class="modal-buttons">
+        <button (click)="emailValue = emailField.value; sendEmail()">Pošalji</button>
+        <button (click)="closeEmailModal()">Poništi</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,220 @@
+.study-planner-container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-back {
+  padding: 0.8rem 1.5rem;
+  background: #666;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-back:hover {
+  background: #555;
+}
+
+h1 {
+  color: #0000cd;
+  margin: 0;
+}
+
+.tracker-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.total-section {
+  margin-bottom: 2rem;
+}
+
+.total-display {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.total-icon {
+  font-size: 80px;
+  margin-bottom: 1rem;
+}
+
+.total-hours {
+  font-size: 64px;
+  font-weight: bold;
+  color: #FFD700;
+}
+
+.total-label {
+  font-size: 24px;
+  color: #666;
+}
+
+.progress-bar {
+  height: 30px;
+  background: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  transition: width 0.5s ease;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, #FFF8DC, #FFEFD5);
+  border-radius: 15px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #FFA500;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 14px;
+  margin-top: 0.5rem;
+}
+
+.subjects-section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  text-align: center;
+  color: #0000cd;
+  margin-bottom: 1.5rem;
+}
+
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.subject-card {
+  background: #fff;
+  border-left: 5px solid #0000cd;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.subject-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.subject-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.subject-hours {
+  font-size: 32px;
+  font-weight: bold;
+  color: #FFA500;
+  margin: 1rem 0;
+}
+
+.subject-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-small {
+  flex: 1;
+  padding: 0.6rem;
+  background: #0000cd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-small:hover {
+  background: #0000b3;
+}
+
+.btn-small.remove {
+  background: #FFA500;
+}
+
+.btn-small.remove:hover {
+  background: #FF8C00;
+}
+
+.controls {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn-reset {
+  padding: 1rem 2rem;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.btn-reset:hover {
+  background: #c82333;
+  transform: translateY(-3px);
+}
+
+.message {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.success-message {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #90EE90, #32CD32);
+  color: #006400;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

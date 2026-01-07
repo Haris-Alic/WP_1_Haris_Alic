@@ -1,0 +1,36 @@
+<div class="whiteboard-container">
+  <div class="header">
+    <button class="btn-back" (click)="goBack()">← Nazad</button>
+    <h1>🎨 Interaktivni Whiteboard</h1>
+  </div>
+
+  <div class="content">
+    <div class="toolbar">
+      <label>Boja:</label>
+      <input type="color" value="#000000" >
+      
+      <label>Veličina:</label>
+      <input type="range" min="1" max="20" value="3" #brushSlider>
+      <span>{{ brushSize }}</span>
+      
+      <button (click)="setDrawMode()">Crtaj</button>
+      <button (click)="setEraseMode()">Briši</button>
+      <button (click)="clearCanvas()">Očisti sve</button>
+      <button (click)="saveAsPNG()">Snimi PNG</button>
+      <button (click)="openEmailModal()">Pošalji mailom</button>
+    </div>
+
+    <canvas #canvas width="1000" height="600"></canvas>
+  </div>
+
+  <div class="modal" *ngIf="showEmailModal" (click)="closeEmailModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h3>Pošalji mailom</h3>
+      <input type="email" #emailField placeholder="Unesite email adresu...">
+      <div class="modal-buttons">
+        <button (click)="sendEmail(emailField.value)">Pošalji</button>
+        <button (click)="closeEmailModal()">Poništi</button>
+      </div>
+    </div>
+  </div>
+</div>

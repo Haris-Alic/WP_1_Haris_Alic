@@ -1,0 +1,90 @@
+.statistics-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  color: #0000cd;
+  margin-bottom: 2rem;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  padding: 0.8rem 2rem;
+  background: #fff;
+  color: #0000cd;
+  border: 2px solid #0000cd;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.filter-btn:hover {
+  background: #f0f0f0;
+}
+
+.filter-btn.active {
+  background: #0000cd;
+  color: white;
+}
+
+.ai-insights-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ai-insights-section h2 {
+  color: #667eea;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.insights-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.insight-card {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3);
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+.chart-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.chart-card h3 {
+  color: #0000cd;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+canvas {
+  max-height: 300px;
+}

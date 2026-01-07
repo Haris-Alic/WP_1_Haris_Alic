@@ -1,0 +1,65 @@
+<div class="study-planner-container">
+  <div class="header">
+    <button class="btn-back" (click)="goBack()">← Nazad</button>
+    <h1>📚 Study Planner</h1>
+  </div>
+
+  <div class="tracker-content">
+    <div class="total-section">
+      <div class="total-display">
+        <div class="total-icon">📖</div>
+        <div class="total-hours">{{ studyData.todayHours }}</div>
+        <div class="total-label">sati danas</div>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="getProgressPercentage()"></div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-value">{{ studyData.todayHours }}</div>
+          <div class="stat-label">Danas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">{{ studyData.goal }}</div>
+          <div class="stat-label">Cilj</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">{{ getProgressPercentage() | number:'1.0-0' }}%</div>
+          <div class="stat-label">Napredak</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subjects-section">
+      <h2>Predmeti</h2>
+      <div class="subjects-grid">
+        <div 
+          *ngFor="let subject of studyData.subjects" 
+          class="subject-card"
+          [style.border-left-color]="subject.color"
+        >
+          <div class="subject-name">{{ subject.name }}</div>
+          <div class="subject-hours">{{ subject.hours }}h</div>
+          <div class="subject-controls">
+            <button class="btn-small" (click)="addHour(subject)">+0.5h</button>
+            <button class="btn-small remove" (click)="removeHour(subject)">-0.5h</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn-reset" (click)="resetAll()">
+        🔄 Reset sve
+      </button>
+    </div>
+
+    <div class="message" *ngIf="studyData.todayHours >= studyData.goal">
+      <div class="success-message">
+        🎉 Bravo! Postigao si dnevni cilj od {{ studyData.goal }} sata!
+      </div>
+    </div>
+  </div>
+</div>

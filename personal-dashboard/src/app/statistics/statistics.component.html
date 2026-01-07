@@ -1,0 +1,53 @@
+<div class="statistics-container">
+  <h1>📊 Statistika & AI Insights</h1>
+
+  <div class="filter-section">
+    <button 
+      class="filter-btn" 
+      [class.active]="filterType === 'day'"
+      (click)="changeFilter('day')"
+    >
+      Dan
+    </button>
+    <button 
+      class="filter-btn" 
+      [class.active]="filterType === 'week'"
+      (click)="changeFilter('week')"
+    >
+      Sedmica
+    </button>
+    <button 
+      class="filter-btn" 
+      [class.active]="filterType === 'month'"
+      (click)="changeFilter('month')"
+    >
+      Mjesec
+    </button>
+  </div>
+
+  <div class="ai-insights-section">
+    <h2>🤖 AI Insights</h2>
+    <div class="insights-grid">
+      <div *ngFor="let insight of aiInsights" class="insight-card">
+        {{ insight }}
+      </div>
+    </div>
+  </div>
+
+  <div class="charts-grid">
+    <div class="chart-card">
+      <h3>Sati spavanja (Sedmica)</h3>
+      <canvas id="sleepChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3>Vrijeme učenja (Sedmica)</h3>
+      <canvas id="studyChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3>Habit Completion</h3>
+      <canvas id="habitChart"></canvas>
+    </div>
+  </div>
+</div>

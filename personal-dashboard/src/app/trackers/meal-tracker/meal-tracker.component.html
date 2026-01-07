@@ -1,0 +1,65 @@
+<div class="meal-tracker-container">
+  <div class="header">
+    <button class="btn-back" (click)="goBack()">← Nazad</button>
+    <h1>🍽️ Meal Tracker</h1>
+  </div>
+
+  <div class="tracker-content">
+    <div class="calorie-section">
+      <div class="calorie-display">
+        <div class="calorie-icon">🔥</div>
+        <div class="calorie-count">{{ mealData.totalCalories }}</div>
+        <div class="calorie-label">/ {{ mealData.calorieGoal }} kcal</div>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="getProgressPercentage()"></div>
+      </div>
+
+      <div class="meal-summary">
+        <span class="logged-count">{{ getLoggedCount() }}/{{ getTotalCount() }} obroka</span>
+      </div>
+    </div>
+
+    <div class="meals-grid">
+      <div 
+        *ngFor="let meal of mealData.meals" 
+        class="meal-card"
+        [class.logged]="meal.logged"
+      >
+        <div class="meal-header" (click)="toggleMeal(meal)">
+          <div class="meal-icon">{{ meal.icon }}</div>
+          <div class="meal-info">
+            <div class="meal-name">{{ meal.name }}</div>
+            <div class="meal-time" *ngIf="meal.time">{{ meal.time }}</div>
+          </div>
+          <div class="meal-status">
+            <span *ngIf="meal.logged" class="checkmark">✓</span>
+            <span *ngIf="!meal.logged" class="empty-check">○</span>
+          </div>
+        </div>
+
+        <div class="meal-calories" *ngIf="meal.logged">
+          <div class="calorie-value">{{ meal.calories }} kcal</div>
+          <div class="calorie-controls">
+            <button class="btn-cal" (click)="addCalories(meal, -50)">-50</button>
+            <button class="btn-cal" (click)="addCalories(meal, 50)">+50</button>
+            <button class="btn-cal" (click)="addCalories(meal, 100)">+100</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn-reset" (click)="resetAll()">
+        🔄 Reset sve
+      </button>
+    </div>
+
+    <div class="message" *ngIf="getLoggedCount() === getTotalCount()">
+      <div class="success-message">
+        🎉 Sve obroke si zabilježio danas! 🍴
+      </div>
+    </div>
+  </div>
+</div>

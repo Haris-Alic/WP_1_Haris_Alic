@@ -1,0 +1,219 @@
+.sleep-tracker-container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.btn-back {
+  padding: 0.8rem 1.5rem;
+  background: #666;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-back:hover {
+  background: #555;
+}
+
+h1 {
+  color: #0000cd;
+  margin: 0;
+}
+
+.tracker-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.sleep-section {
+  margin-bottom: 2rem;
+}
+
+h2 {
+  text-align: center;
+  color: #0000cd;
+  margin-bottom: 1.5rem;
+}
+
+.sleep-display {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sleep-emoji {
+  font-size: 80px;
+  margin-bottom: 1rem;
+}
+
+.sleep-hours {
+  font-size: 64px;
+  font-weight: bold;
+  color: #9370DB;
+}
+
+.sleep-label {
+  font-size: 24px;
+  color: #666;
+}
+
+.progress-bar {
+  height: 30px;
+  background: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #9370DB, #6A5ACD);
+  transition: width 0.5s ease;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, #E6E6FA, #D8BFD8);
+  border-radius: 15px;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #9370DB;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 14px;
+  margin-top: 0.5rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.controls button {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.btn-add {
+  background: #9370DB;
+  color: white;
+}
+
+.btn-add:hover {
+  background: #8060C0;
+  transform: translateY(-3px);
+}
+
+.btn-remove {
+  background: #FFA500;
+  color: white;
+}
+
+.btn-remove:hover {
+  background: #FF8C00;
+  transform: translateY(-3px);
+}
+
+.btn-reset {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-reset:hover {
+  background: #c82333;
+  transform: translateY(-3px);
+}
+
+.btn-icon {
+  font-size: 24px;
+  margin-right: 0.5rem;
+}
+
+.quality-section {
+  margin-top: 2rem;
+}
+
+h3 {
+  text-align: center;
+  color: #9370DB;
+  margin-bottom: 1rem;
+}
+
+.quality-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.quality-btn {
+  padding: 1rem;
+  background: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.quality-btn:hover {
+  background: #e0e0e0;
+  transform: scale(1.05);
+}
+
+.quality-btn.active {
+  background: linear-gradient(135deg, #9370DB, #6A5ACD);
+  color: white;
+  border-color: #9370DB;
+}
+
+.message {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.success-message {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #90EE90, #32CD32);
+  color: #006400;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

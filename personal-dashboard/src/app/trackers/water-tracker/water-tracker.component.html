@@ -1,0 +1,59 @@
+<div class="water-tracker-container">
+  <div class="header">
+    <button class="btn-back" (click)="goBack()">← Nazad</button>
+    <h1>💧 Water Tracker</h1>
+  </div>
+
+  <div class="tracker-content">
+    <div class="progress-section">
+      <div class="water-glasses">
+        <div 
+          *ngFor="let glass of [].constructor(waterData.goal); let i = index" 
+          class="glass"
+          [class.filled]="i < waterData.today"
+        >
+          💧
+        </div>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="getProgressPercentage()"></div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-value">{{ waterData.today }}</div>
+          <div class="stat-label">Danas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">{{ waterData.goal }}</div>
+          <div class="stat-label">Cilj</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">{{ getProgressPercentage() | number:'1.0-0' }}%</div>
+          <div class="stat-label">Napredak</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="btn-add" (click)="addGlass()">
+        <span class="btn-icon">+</span>
+        Dodaj čašu
+      </button>
+      <button class="btn-remove" (click)="removeGlass()">
+        <span class="btn-icon">−</span>
+        Ukloni čašu
+      </button>
+      <button class="btn-reset" (click)="resetToday()">
+        🔄 Reset
+      </button>
+    </div>
+
+    <div class="message" *ngIf="waterData.today >= waterData.goal">
+      <div class="success-message">
+        🎉 Čestitamo! Ispunili ste svoj dnevni cilj!
+      </div>
+    </div>
+  </div>
+</div>

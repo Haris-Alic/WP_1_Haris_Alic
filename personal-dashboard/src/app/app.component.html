@@ -1,0 +1,29 @@
+<div class="dashboard-container" [ngClass]="currentTheme">
+  <header class="dashboard-header">
+    <div class="logo-section">
+      <img src="assets/logo-ipi.png" alt="IPI Logo" *ngIf="logoLoaded">
+    </div>
+    <nav class="dashboard-nav">
+      <button routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        VIEW PROFILE
+      </button>
+      <button routerLink="/funzone" routerLinkActive="active">
+        STUDENT FUN ZONE
+      </button>
+      <button routerLink="/trackers" routerLinkActive="active">
+        MY TRACKERS
+      </button>
+      <button routerLink="/statistics" routerLinkActive="active">
+        📊 STATISTIKA
+      </button>
+    </nav>
+  </header>
+
+  <main class="dashboard-main">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="dashboard-footer">
+    &copy; Internacionalna poslovno-informaciona akademija Tuzla
+  </footer>
+</div>
